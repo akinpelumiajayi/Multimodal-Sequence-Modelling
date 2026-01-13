@@ -1,0 +1,11 @@
+diffusers
+accelerate
+transformers
+datasets
+beautifulsoup4
+ftfy
+safetensors
+torchvision
+matplotlib
+bitsandbytes
+PyYAML
