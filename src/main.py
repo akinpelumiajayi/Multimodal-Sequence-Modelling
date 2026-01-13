@@ -1,6 +1,6 @@
 import os
 from src.ablate import run_ablation
-from src.visualize import visualize_5panel_with_z
+from src.visualize import visualize_with_z
 from src.utils import load_yaml
 
 def load_z_tokens_from_cache(idx, cache_path):
