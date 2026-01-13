@@ -14,16 +14,22 @@ if __name__ == "__main__":
     ROOT = cfg["paths"]["root"]
     results_dir = os.path.join(ROOT, "results")
     cache_path  = os.path.join(ROOT, "checkpoints", "decoder_cache.pt")
+
+    #--Ablation grid--
+    idx_list   = [0, 5, 10]
+    strengths  = [0.02, 0.05, 0.10]
+    steps_list = [10, 20, 30]
+    cfg_scales = [1.0, 3.0, 5.0, 7.0]
   
     csv_path = run_ablation(
         idx_list=idx_list,
         strengths=strengths,
         steps_list=steps_list,
         cfg_scales=cfg_scales,
-        split="train",  # must match your cache split
+        split="train", 
         results_dir=results_dir,
         load_z_tokens_fn=lambda i: load_z_tokens_from_cache(i, cache_path),
-        visualize_fn=visualize_5panel_with_z
+        visualize_fn=visualize_with_z
     )
 
     print("Ablation complete. Metrics saved to:", csv_path)
