@@ -209,6 +209,24 @@ def main(config_path="config.yaml"):
     vocab_size = gpt2_tok.vocab_size
 
     class CachedDecoderDataset(torch.utils.data.Dataset):
+        """
+        Dataset wrapper around a precomputed decoder cache as saved for memory.
+        
+        Each cache entry contains:
+          - z_pred: (T,512) conditioning tokens from the sequence model.
+          - gt_latent: (4,64,64) VAE latent for ground-truth image(4)
+          - text: raw ground-truth text(4) string
+        This dataset tokenizes `text` using GPT-2 tokenizer and returns
+        `text_ids` for autoregressive text decoder training.
+        
+        Args:
+            path: Path to a cache file created by build_cache() (torch.save list of dicts).
+        Returns (per item):
+            z_pred: FloatTensor (T,512)
+            gt_latent: FloatTensor (4,64,64)
+            text_ids: LongTensor (MAX_LEN,)
+            text: str (original text)
+    """
         def __init__(self, path):
             self.data = torch.load(path, map_location="cpu")
         def __len__(self): return len(self.data)
@@ -321,3 +339,4 @@ def main(config_path="config.yaml"):
 
 if __name__ == "__main__":
     main("config.yaml")
+
