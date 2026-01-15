@@ -6,7 +6,7 @@ from .metrics import ClipScorer
 from .visualize import visualize_with_z 
 
 def run_ablation(
-    # idx_list,
+    idx_list,
     strengths,
     steps_list,
     cfg_scales,
