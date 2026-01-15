@@ -1,4 +1,4 @@
-idx,split,steps,strength,cfg_scale,panel_path,clip_predimg_predtxt,clip_predimg_gttxt
+
 0,train,10,0.02,1.0,/content/drive/MyDrive/Mutimodal_Sequential_prediction/results/ablations/idx0_steps10_str0.020_cfg1.00.png,0.24404962360858917,0.19394156336784363
 0,train,10,0.02,3.0,/content/drive/MyDrive/Mutimodal_Sequential_prediction/results/ablations/idx0_steps10_str0.020_cfg3.00.png,0.20348204672336578,0.1831008940935135
 0,train,10,0.02,5.0,/content/drive/MyDrive/Mutimodal_Sequential_prediction/results/ablations/idx0_steps10_str0.020_cfg5.00.png,0.27516406774520874,0.1957729011774063
